@@ -4,46 +4,56 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Одесские баранки.&nbsp;¯\_(ツ)_/¯</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="Author" content="текст Вадим Сиротенко, картины Ирина Бабиченко">
 <style>
 body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
-}
-.art {
 	top: 0px;
-	height: 100%;
-	width: auto;
-/*	text-align: center;
-	margin: 0 auto;*/
+	left: 0px;
+	background-size: contain;
+	background-position-x: center;
+	background-position-y: top;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-image: url('img/1.jpg');
 }
 .ctrl {
 	display: block;
 	margin: 0 auto;
 	position: absolute;
-/*	text-align: center;*/
-	bottom: 0px;
+	text-align: center;
+	bottom: 10px;
+}
+.arroundleft {
+	position: fixed;
+	padding-top: 20%;
+	padding-left: 5%;
+}
+.arroundright {
+	position: fixed;
+	padding-top: 20%;
+	padding-left: 85%;
 }
 </style>
 <script>
-	var max_idx=3;
+	var max_idx=4;
 	var idx=1;
-//	document.getElementsByTagName('img')
+function changeStory(arg){
+	idx=idx+(parseInt(arg));
+	if(idx<1)idx=max_idx;
+	if(idx>max_idx)idx=1;
+//	alert('arg='+arg+'  idx='+idx);
+	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
+	document.getElementById('story').src='audio/'+idx+'.wav';
+};
 </script>
 </head>
-<body>
-<div class="art" title="Таки шобы пэрейти к дальше – нажми мышой, по картинке!">
+<body id="pictIB">
 <div class="ctrl">
-	<audio id="story" class="ctrl" src="audio/1.wav" autoplay="no" controls="true"></audio>
+	<audio id="story" src="audio/1.wav" autoplay="no" controls="true"></audio>
 </div>
-<img id="pict" src="img/1.jpg" class="art" 
-onclick="idx++;if(idx>max_idx)idx=1;
-document.getElementById('pict').src='img/'+idx+'.jpg';
-document.getElementById('story').src='audio/'+idx+'.wav';
-" 
-title="Таки шобы пэрейти к дальше – нажми мышой, по картинке!"
->
-</div>
+<div class="arroundright"><button onclick="changeStory('+1');" id="arr1"><img src="right.png"></button></div>
+<div class="arroundleft"><button onclick="changeStory('-1');" id="arr2"><img src="left.png"></button></div>
 </body>
 </html>
