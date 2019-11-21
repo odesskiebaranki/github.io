@@ -4,7 +4,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Одесские баранки.&nbsp;¯\_(ツ)_/¯</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta author="Текст Вадим Сиротенко, художник Ирина Бабиченко">
 <style>
 body {
 	height: 100%;
@@ -27,26 +26,35 @@ body {
 	bottom: 10px;
 }
 .arroundleft {
-	position: fixed;
+/*	position: fixed;*/
 	padding-top: 20%;
-	padding-left: 5%;
+/*	padding-left: 0%;*/
+	float: left;
+	margin: 15px;
 }
 .arroundright {
-	position: fixed;
+/*	position: fixed;*/
 	padding-top: 20%;
-	padding-left: 85%;
+/*	padding-left: 95%;*/
+	float: right;
+	margin: 15px;
+}
+.arrows {
+	height: 20px;
+	width: auto;
 }
 </style>
 <script>
-	var max_idx=4;
-	var idx=1;
+var max_idx=4;
+var idx=1;
+document.img.style.height=document.documentElement.clientHeight*0.1+'px';
 function changeStory(arg){
 	idx=idx+(parseInt(arg));
 	if(idx<1)idx=max_idx;
 	if(idx>max_idx)idx=1;
-//	alert('arg='+arg+'  idx='+idx);
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
+	document.getElementById('story').pause();
 };
 </script>
 </head>
@@ -54,7 +62,7 @@ function changeStory(arg){
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" autoplay="no" controls="true"></audio>
 </div>
-<div class="arroundright"><button onclick="changeStory('+1');" id="arr1"><img src="right.png"></button></div>
-<div class="arroundleft"><button onclick="changeStory('-1');" id="arr2"><img src="left.png"></button></div>
+<div class="arroundright"><button onclick="changeStory('+1');" id="arr1"><img class="arrows" src="right.png"></button></div>
+<div class="arroundleft"><button onclick="changeStory('-1');" id="arr2"><img class="arrows" src="left.png"></button></div>
 </body>
 </html>
