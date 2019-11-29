@@ -41,9 +41,10 @@ body {
 /*	padding-left: 95%;*/
 	float: right;
 	margin: 15px;
+	border-style: none;
 }
 .arrows {
-	height: 20px;
+	height: 60px;
 	width: auto;
 }
 </style>
@@ -65,7 +66,7 @@ function changeStory(arg){
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" autoplay="no" controls="true"></audio>
 </div>
-<div class="arroundright"><button onclick="changeStory('+1');" id="arr1"><img class="arrows" src="right.png" title="Тудой!"></button></div>
-<div class="arroundleft"><button onclick="changeStory('-1');" id="arr2"><img class="arrows" src="left.png" title="Сюдой!"></button></div>
+<div class="arroundright"><img class="arrows" src="img/nose_right.png" title="Тудой!" onclick="changeStory('+1');"></div>
+<div class="arroundleft"><img class="arrows" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
 </body>
 </html>
