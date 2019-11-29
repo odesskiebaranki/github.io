@@ -43,9 +43,23 @@ body {
 	margin: 15px;
 	border-style: none;
 }
-.arrows {
+.arrows_right {
 	height: 60px;
 	width: auto;
+	transform-origin: -15px, 0; 
+	transition-duration: 0.5s; 
+}
+.arrows_right:hover {
+	transform: rotate(45deg);	
+}
+.arrows_left {
+	height: 60px;
+	width: auto;
+	transform-origin: 15px, 0;
+	transition-duration: 0.5s; 
+}
+.arrows_left:hover {
+	transform: rotate(-45deg);
 }
 </style>
 <script>
@@ -66,7 +80,7 @@ function changeStory(arg){
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" autoplay="no" controls="true"></audio>
 </div>
-<div class="arroundright"><img class="arrows" src="img/nose_right.png" title="Тудой!" onclick="changeStory('+1');"></div>
-<div class="arroundleft"><img class="arrows" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
+<div class="arroundright"><img class="arrows_right" src="img/nose_right.png" title="Тудой!" onclick="changeStory('+1');"></div>
+<div class="arroundleft"><img class="arrows_left" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
 </body>
 </html>
