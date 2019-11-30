@@ -82,6 +82,11 @@ function changeStory(arg){
 	document.getElementById('story').src='audio/'+idx+'.wav';
 	document.getElementById('story').pause();
 };
+document.body.addEventListener('touchmove', function(evt){
+//	document.querySelector('#x').innerHTML = parseInt(evt.changedTouches[0].pageX);
+//	document.querySelector('#y').innerHTML = parseInt(evt.changedTouches[0].pageY);
+	if(parseInt(evt.changedTouches[0].pageX)<parseInt(evt.changedTouches[1].pageX)){changeStory(1)}else{changeStory(-1)};
+});
 </script>
 </head>
 <body id="pictIB">
