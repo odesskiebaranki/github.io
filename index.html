@@ -53,7 +53,8 @@ body {
 <script>
 var max_idx=14;
 var idx=1;
-document.img.style.height=document.documentElement.clientHeight*0.1+'px';
+//document.img.style.height=document.documentElement.clientHeight*0.1+'px';
+document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
 function changeStory(arg){
 	idx=idx+(parseInt(arg));
 	if(idx<1)idx=max_idx;
