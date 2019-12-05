@@ -56,6 +56,15 @@ var idx=1;
 //document.img.style.height=document.documentElement.clientHeight*0.1+'px';
 document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
 
+function changeStory(arg){
+	idx=idx+(parseInt(arg));
+	if(idx<1)idx=max_idx;
+	if(idx>max_idx)idx=1;
+	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
+	document.getElementById('story').src='audio/'+idx+'.wav';
+	document.getElementById('story').pause();
+};
+
 var initialPoint;
 var finalPoint;
 //document.getElementsByTagName('body').addEventListener('touchstart', function(event) {
@@ -81,14 +90,7 @@ document.ocument.querySelector('body').addEventListener('touchend', function(eve
 //var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
 //var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
 
-function changeStory(arg){
-	idx=idx+(parseInt(arg));
-	if(idx<1)idx=max_idx;
-	if(idx>max_idx)idx=1;
-	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
-	document.getElementById('story').src='audio/'+idx+'.wav';
-	document.getElementById('story').pause();
-};
+
 </script>
 </head>
 <body id="pictIB">
