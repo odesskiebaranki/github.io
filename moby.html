@@ -58,7 +58,7 @@ document.getElementsByTagName('img').style.height=document.documentElement.clien
 
 var initialPoint;
 var finalPoint;
-document.addEventListener('touchstart', function(event) {
+document.getElementsByTagName('body').addEventListener('touchstart', function(event) {
 	event.preventDefault();
 //	event.stopPropagation();
 	initialPoint=event.changedTouches[0];
