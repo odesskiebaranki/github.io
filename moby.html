@@ -67,19 +67,19 @@ document.ocument.querySelector('body').addEventListener('touchstart', function(e
 }, false);
 
 //document.getElementsByTagName('body').addEventListener('touchend', function(event) 
-document.ocument.querySelector('body').addEventListener('touchend', function(event) {{
+document.ocument.querySelector('body').addEventListener('touchend', function(event){
 	event.preventDefault();
 //	event.stopPropagation();
 	finalPoint=event.changedTouches[0];
 	alert('stop hand on: '+initialPoint.pageX);
+	if (finalPoint.pageX < finalPoint.pageX){
+		changeStory(-1);
+	}else{
+		changeStory(+1);
+	};
 }, false);
 //var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
 //var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
-if (finalPoint.pageX < finalPoint.pageX){
-	changeStory(-1);
-}else{
-	changeStory(+1);
-};
 
 function changeStory(arg){
 	idx=idx+(parseInt(arg));
