@@ -65,13 +65,12 @@ document.addEventListener('touchstart', function(event) {
 	alert('start hand on: '+initialPoint.pageX);
 }, false);
 
-document.addEventListener('touchend', function(event) {
+document.getElementsByTagName('body').addEventListener('touchend', function(event) {
 	event.preventDefault();
 //	event.stopPropagation();
 	finalPoint=event.changedTouches[0];
 	alert('stop hand on: '+initialPoint.pageX);
 }, false);
-
 //var xAbs = Math.abs(initialPoint.pageX - finalPoint.pageX);
 //var yAbs = Math.abs(initialPoint.pageY - finalPoint.pageY);
 if (finalPoint.pageX < finalPoint.pageX){
