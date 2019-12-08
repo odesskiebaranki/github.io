@@ -68,7 +68,7 @@ function getCookie(name) {
 }
 
 function setCookie(name, value) {
-	document.cookie = name + '=' + value+'; max-age='+3600*24*31;
+	document.cookie = name + '=' + value + '; max-age='+3600*24*31;
 }
 
 function changeStory(arg){
@@ -78,10 +78,10 @@ function changeStory(arg){
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
 	document.getElementById('story').pause();
-//	setCookie('page', idx, {secure: true, 'max-age': 360000});
 	setCookie('page', idx);
 };
 var page = getCookie('page');
+alert('page='+page);
 if(page === undefined){
 	idx=1;
 }else{
