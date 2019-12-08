@@ -7,6 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta naame="author" content="текст Вадим Сиротенко, художник Ирина Бабиченко">
 <style>
+html {
+	height: 100%;
+	width: 100%;
+	min-height:100%;	
+}
 body {
 	height: 100%;
 	width: 100%;
@@ -68,7 +73,7 @@ function changeStory(arg){
 var initialPoint;
 var finalPoint;
 //document.getElementsByTagName('body').addEventListener('touchstart', function(event) {
-document.ocument.querySelector('body').addEventListener('touchstart', function(event) {
+document.getElementsByTagName('html')[0].addEventListener('touchstart', function(event) {
 	event.preventDefault();
 //	event.stopPropagation();
 	initialPoint=event.changedTouches[0];
@@ -76,9 +81,10 @@ document.ocument.querySelector('body').addEventListener('touchstart', function(e
 }, false);
 
 //document.getElementsByTagName('body').addEventListener('touchend', function(event) 
-document.ocument.querySelector('body').addEventListener('touchend', function(event){
+//document.ocument.querySelector('body').addEventListener('touchend', function(event){
+document.getElementsByTagName('html')[0].addEventListener('touchend', function(event) {
 	event.preventDefault();
-//	event.stopPropagation();
+	event.stopPropagation();
 	finalPoint=event.changedTouches[0];
 	alert('stop hand on: '+initialPoint.pageX);
 	if (finalPoint.pageX < finalPoint.pageX){
