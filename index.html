@@ -60,6 +60,34 @@ var max_idx=24;
 var idx=1;
 //document.img.style.height=document.documentElement.clientHeight*0.1+'px';
 document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
+function getCookie(name) {
+  let matches = document.cookie.match(new RegExp(
+    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+  ));
+  return matches ? decodeURIComponent(matches[1]) : undefined;
+}
+
+function setCookie(name, value, options = {}) {
+  options = {
+    path: '/',
+    // при необходимости добавьте другие значения по умолчанию
+    //...options
+  };
+  if (options.expires.toUTCString) {
+    options.expires = options.expires.toUTCString();
+  }
+  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+
+  for (let optionKey in options) {
+    updatedCookie += "; " + optionKey;
+    let optionValue = options[optionKey];
+    if (optionValue !== true) {
+      updatedCookie += "=" + optionValue;
+    }
+  }
+  document.cookie = updatedCookie;
+}
+
 function changeStory(arg){
 	idx=idx+(parseInt(arg));
 	if(idx<1)idx=max_idx;
@@ -67,7 +95,10 @@ function changeStory(arg){
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
 	document.getElementById('story').pause();
+	setCookie('page', idx, {secure: true, 'max-age': 360000});
 };
+var page = getCookie('page');
+if(page === undefined){1}else{page};
 </script>
 </head>
 <body id="pictIB">
