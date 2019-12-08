@@ -81,7 +81,6 @@ function changeStory(arg){
 	setCookie('page', idx);
 };
 var page = getCookie('page');
-alert('page='+page);
 if(page === undefined){
 	idx=1;
 }else{
@@ -90,6 +89,7 @@ if(page === undefined){
 	document.getElementById('story').src='audio/'+idx+'.wav';
 	document.getElementById('story').pause();
 };
+alert('idx='+idx);
 </script>
 </head>
 <body id="pictIB">
