@@ -98,7 +98,14 @@ function changeStory(arg){
 	setCookie('page', idx, {secure: true, 'max-age': 360000});
 };
 var page = getCookie('page');
-if(page === undefined){1}else{page};
+if(page === undefined){
+	idx=1;
+}else{
+	idx=page;
+	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
+	document.getElementById('story').src='audio/'+idx+'.wav';
+	document.getElementById('story').pause();
+};
 </script>
 </head>
 <body id="pictIB">
