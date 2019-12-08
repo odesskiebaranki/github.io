@@ -67,28 +67,8 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined;
 }
 
-function setCookie(name, value, options = {}) {
-/*
-	options = {
-    	path: '/'
-    	// при необходимости добавьте другие значения по умолчанию
-    	//...options
-  	};
-  if (options.expires.toUTCString) {
-    options.expires = options.expires.toUTCString();
-  }
-  let updatedCookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
-
-  for (let optionKey in options) {
-    updatedCookie += "; " + optionKey;
-    let optionValue = options[optionKey];
-    if (optionValue !== true) {
-      updatedCookie += "=" + optionValue;
-    }
-  }
-  document.cookie = updatedCookie;
-*/
-	document.cookie = name + '=' + value;
+function setCookie(name, value) {
+	document.cookie = name + '=' + value+'; max-age='+3600*24*31;
 }
 
 function changeStory(arg){
@@ -98,7 +78,8 @@ function changeStory(arg){
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
 	document.getElementById('story').pause();
-	setCookie('page', idx, {secure: true, 'max-age': 360000});
+//	setCookie('page', idx, {secure: true, 'max-age': 360000});
+	setCookie('page', idx);
 };
 var page = getCookie('page');
 if(page === undefined){
