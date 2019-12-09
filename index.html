@@ -34,13 +34,11 @@ html {
 	bottom: 10px;
 }
 .arroundleft {
-/*	position: fixed;*/
 	padding-top: 6%;
 	float: left;
 	margin: 15px;
 }
 .arroundright {
-/*	position: fixed;*/
 	padding-top: 6%;
 	float: right;
 	margin: 15px;
@@ -58,16 +56,8 @@ html {
 <script>
 var max_idx=24;
 var idx=1;
-//document.img.style.height=document.documentElement.clientHeight*0.1+'px';
 document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
 function getCookie(name) {
-/*
-	let matches = document.cookie.match(new RegExp(
-		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-	));
-	return matches ? decodeURIComponent(matches[1]) : undefined;
-*/
-//	var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)page\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	return document.cookie.replace(/(?:(?:^|.*;\s*)page\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 }
 
