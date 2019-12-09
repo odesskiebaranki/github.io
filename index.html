@@ -61,10 +61,14 @@ var idx=1;
 //document.img.style.height=document.documentElement.clientHeight*0.1+'px';
 document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
 function getCookie(name) {
-  let matches = document.cookie.match(new RegExp(
-    "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
-  ));
-  return matches ? decodeURIComponent(matches[1]) : undefined;
+/*
+	let matches = document.cookie.match(new RegExp(
+		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+	));
+	return matches ? decodeURIComponent(matches[1]) : undefined;
+*/
+//	var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)page\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+	return document.cookie.replace(/(?:(?:^|.*;\s*)page\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 }
 
 function setCookie(name, value) {
@@ -80,7 +84,11 @@ function changeStory(arg){
 	document.getElementById('story').pause();
 	setCookie('page', idx);
 };
-var page = getCookie('page');
+</script>
+</head>
+<body id="pictIB">
+<script>
+var page = parseInt(getCookie('page'));
 if(page === undefined){
 	idx=1;
 }else{
@@ -90,8 +98,6 @@ if(page === undefined){
 	document.getElementById('story').pause();
 };
 </script>
-</head>
-<body id="pictIB">
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" controls="true"></audio>
 </div>
