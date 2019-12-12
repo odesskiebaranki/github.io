@@ -27,7 +27,7 @@ html {
 	background-image: url('img/1.jpg');
 }
 .ctrl {
-	display: block;
+/*	display: inline; */
 	margin: 0 auto;
 	position: absolute;
 	text-align: center;
@@ -37,6 +37,7 @@ html {
 	padding-top: 6%;
 	float: left;
 	margin: 15px;
+	border-style: none;
 }
 .arroundright {
 	padding-top: 6%;
@@ -54,7 +55,7 @@ html {
 }
 </style>
 <script>
-var max_idx=43;
+var max_idx=24;
 var idx=1;
 document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
 function getCookie(name) {
@@ -71,19 +72,40 @@ function changeStory(arg){
 	if(idx>max_idx)idx=1;
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
-	document.getElementById('story').pause();
+	if(document.getElementById('autoplay').src.indexOf('start.png')>0) {
+		document.getElementById('story').pause();
+	}else{
+		document.getElementById('story').play();
+	};
 	setCookie('page', idx);
 };
+var handler = {
+    handleEvent: function(e){changeStory(1)}
+};
+function getAutoPlay(){
+	if(document.getElementById('autoplay').src.indexOf('start.png')>0) {
+		document.getElementById('autoplay').src='img/stop.png';
+		document.getElementById('autoplay').title='Выключить автоматическое проигрывание';
+		document.getElementById('story').addEventListener("ended", handler, true);
+		document.getElementById('story').play();
+	}else{
+		document.getElementById('autoplay').src='img/start.png';
+		document.getElementById('autoplay').title='Включить автоматическое проигрывание';
+		document.getElementById('story').removeEventListener("ended", handler, true);
+	};
+}
 </script>
 </head>
 <body id="pictIB">
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" controls="true" controlsList="nodownload"></audio>
+	<img id="autoplay" style="float: right; margin-top: 2%;" src="img/start.png" onclick="getAutoPlay()" title="Включить автоматическое проигрывание">
 </div>
-<div class="arroundright"><img class="arrows_right" src="img/nose_right.png" title="Тудой!" onclick="changeStory('+1');"></div>
-<div class="arroundleft"><img class="arrows_left" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
+<div class="arroundright"><img id="tuda" class="arrows_right" src="img/nose_right.png" title="Тудой!" onclick="changeStory('+1');"></div>
+<div class="arroundleft"><img id="suda" class="arrows_left" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
 <script>
 var page = parseInt(getCookie('page'));
+var page=1;
 if(page === undefined){
 	idx=1;
 }else{
