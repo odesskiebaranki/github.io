@@ -55,9 +55,11 @@ html {
 }
 </style>
 <script>
-var max_idx=24;
+var max_idx=43;
 var idx=1;
-document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
+//document.getElementsByTagName('img').style.height=document.documentElement.clientHeight*0.1+'px';
+//document.getElementById('tuda').style.height=document.documentElement.clientHeight*0.1+'px';
+//document.getElementById('suda').style.height=document.documentElement.clientHeight*0.1+'px';
 function getCookie(name) {
 	return document.cookie.replace(/(?:(?:^|.*;\s*)page\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 }
@@ -105,14 +107,16 @@ function getAutoPlay(){
 <div class="arroundleft"><img id="suda" class="arrows_left" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
 <script>
 var page = parseInt(getCookie('page'));
-if(page === undefined){
+alert('page='+page);
+if(isNaN(page) || page === undefined){
 	idx=1;
 }else{
 	idx=page;
-	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
-	document.getElementById('story').src='audio/'+idx+'.wav';
-	document.getElementById('story').pause();
 };
+alert('2) page='+page);
+document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
+document.getElementById('story').src='audio/'+idx+'.wav';
+document.getElementById('story').pause();
 </script>
 </body>
 </html>
