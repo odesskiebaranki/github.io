@@ -107,13 +107,11 @@ function getAutoPlay(){
 <div class="arroundleft"><img id="suda" class="arrows_left" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
 <script>
 var page = parseInt(getCookie('page'));
-alert('page='+page);
 if(isNaN(page) || page === undefined){
 	idx=1;
 }else{
 	idx=page;
 };
-alert('2) page='+page);
 document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 document.getElementById('story').src='audio/'+idx+'.wav';
 document.getElementById('story').pause();
