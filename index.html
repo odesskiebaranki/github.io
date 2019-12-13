@@ -158,10 +158,12 @@ document.getElementById('story').pause();
 
 function openNav() {
     document.getElementById("mySidenav").style.width = "20%";
+    document.getElementById('pictIB').addEventListener("click", closeNav, true);
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
+    document.getElementById('pictIB').removeEventListener("click", closeNav, true);
 }
 </script>
 </body>
