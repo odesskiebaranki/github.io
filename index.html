@@ -69,9 +69,14 @@ html {
 .sidenav .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 0px;
     font-size: 36px;
     margin-left: 25px;
+    background-color: #d50000;
+    color: #fffbfb;
+    font-weight: 900;
+    text-decoration: none;
+    text-shadow: 2px 2px 2px #c6c4c4, 0 0 1em #c7c5c5;
 }
 .sidenav p {
     padding: 8px 8px 8px 32px;
@@ -129,15 +134,15 @@ function getAutoPlay(){
 <body id="pictIB">
 <span style="font-size:30px;cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Об авторах" onclick="openNav()">☰</span>
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" title="Закрыть">&nbsp;×&nbsp;</a>
   <p id="about">
   Немножко об авторах:
-  	<br/><img src="img/Babichenko.jpg" style="float: left; margin: 5px; width: 25%; height: auto;" title="Автопортрет">Автор рисунков одесский художник Ирина Бабиченко
+  	<br/><img src="img/Babichenko.jpg" style="float: left; margin: 5px; width: 25%; height: auto;">Автор рисунков одесский художник Ирина Бабиченко
   	<br/>Страница Ирины в сети <a href="https://www.facebook.com/profile.php?id=100012223688631" target="_blank">Facebook</a>
   	<br/>Свободные картины Ирины можно у неё же приобрести, написав ей на <a href="mailto:ira4272@gmail.com" target="_blank">почту</a>.
-  	<br/><br/><img src="img/swa.jpg" style="float: left; margin: 5px; width: 25%; height: auto;" title="Рисунок в подарок от художника из Венгрии Елены Андерсовой">Автор текстов и создатель этого сайта Вадим Сиротенко, г.Свердловск.
+  	<br/><br/><img src="img/swa.jpg" style="float: left; margin: 5px; width: 25%; height: auto;">Автор текстов и создатель этого сайта Вадим Сиротенко, г.Свердловск.
   	<br/>Страница Вадима в том же <a href="https://www.facebook.com/feist.vadim" target="_blank">Facebook</a>
-  	<br/>Мне можно писать на <a href="mailto:sirotenkowadim@gmail.com" target="_blank">почту</a>.
+  	<br/>Мне можно писать на <a href="mailto:sirotenkovadim@gmail.com" target="_blank">почту</a>.
   </p>
 </div>
 <div class="ctrl">
@@ -158,13 +163,13 @@ document.getElementById('story').src='audio/'+idx+'.wav';
 document.getElementById('story').pause();
 
 function openNav() {
-    document.getElementById("mySidenav").style.width = "35%";
-    document.getElementById('pictIB').addEventListener("click", closeNav, true);
+    document.getElementById("mySidenav").style.width = "30%";
+//    document.getElementById('pictIB').addEventListener("click", closeNav, true);
 }
 
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
-    document.getElementById('pictIB').removeEventListener("click", closeNav, true);
+//    document.getElementById('pictIB').removeEventListener("click", closeNav, true);
 }
 </script>
 </body>
