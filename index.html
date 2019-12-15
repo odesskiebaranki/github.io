@@ -212,6 +212,23 @@ function closeNav(win) {
 	document.getElementById(win).style.width = "0%";
 //	document.getElementById('pictIB').removeEventListener("click", closeNav, true);
 }
+function goPage(e){
+	switch(e.keyCode){
+		case 37:  // если нажата клавиша влево
+			changeStory('-1');
+            break;
+		case 38:   // если нажата клавиша вверх
+			changeStory('-1');
+			break;
+		case 39:   // если нажата клавиша вправо
+			changeStory('+1');
+			break;
+		case 40:   // если нажата клавиша вниз
+			changeStory('+1');
+			break;
+	};
+}
+document.body.addEventListener('keydown', goPage, true);
 </script>
 </body>
 </html>
