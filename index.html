@@ -248,14 +248,14 @@ function turn_start(event) {
     touch_position = event.touches[0].pageX;
 }
 function turn_page(event) {
-    var tmp_move = touch_position-event.touches[0].pageX;
-    if (Math.abs(tmp_move)<10) { return false; };
-    if (tmp_move<0) {
-        changeStory('+1');
-    }
-    else {
-        changeStory('-1');
-    };
+	var touch_stop = event.touches[0].pageX;
+	var tmp_move = touch_position-touch_stop;
+	if (Math.abs(tmp_move)<10) { return false; };
+	if (tmp_move<0) {
+		changeStory('+1');
+	}else{
+		changeStory('-1');
+	};
 }
 document.body.addEventListener('keydown', goPage, true);
 document.body.addEventListener('touchstart', turn_start, true);
