@@ -229,21 +229,23 @@ function closeNav(win) {
 }
 function goPage(e){
 	switch(e.keyCode){
-		case 37:  // если нажата клавиша влево
+		case 37:
 			changeStory('-1');
             break;
-		case 38:   // если нажата клавиша вверх
+		case 38:
 			changeStory('-1');
 			break;
-		case 39:   // если нажата клавиша вправо
+		case 39:
 			changeStory('+1');
 			break;
-		case 40:   // если нажата клавиша вниз
+		case 40:
 			changeStory('+1');
 			break;
 	};
 }
 document.body.addEventListener('keydown', goPage, true);
+document.body.addEventListener('touchstart', turn_start, true);
+document.body.addEventListener('touchend', turn_page, true);
 </script>
 </body>
 </html>
