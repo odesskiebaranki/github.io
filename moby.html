@@ -119,6 +119,12 @@ html {
 	border-color: #000000;
 	transform: rotate(45deg);
 }
+.tmp_info {
+	position: absolute;
+	bottom: 15px;
+	border: 3px;
+	right: 15%;
+}
 @media screen and (max-height: 100%) {
 	.sidenav {padding-top: 15px;}
 	.sidenav a {font-size: 18px;}
@@ -190,6 +196,7 @@ function getAutoPlay(){
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('textstory')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<iframe id="showText" frameborder="no" seamless width="100%" height="85%" style="font-size:14px;" src=""></iframe>
 </div>
+<div id="tmp" class="tmp_info"></div>
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" controls="true" controlsList="nodownload"></audio>
 	<img id="autoplay" style="float: right; margin-top: 2%;" src="img/start.png" onclick="getAutoPlay()" title="Включить автоматическое проигрывание">
@@ -236,11 +243,11 @@ var touch_position, touch_stop; // Координата нажатия
  
 function turn_start(event) {
     touch_position = event.touches[0].pageX;
-//    alert('нажато х='+touch_position);
+    document.getElementById('tmp').innerHTML='start='+touch_position;
 }
 function turn_page(event) {
 	touch_stop = event.touches[0].pageX;
-	alert('отпущено х='+touch_stop);
+    document.getElementById('tmp').innerHTML='start:stop='+touch_position+':'+touch_stop;
     let tmp_move = touch_position-touch_stop;
 	if (Math.abs(tmp_move)<10) { return false; };
 	if (tmp_move<0) {
