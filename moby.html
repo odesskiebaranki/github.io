@@ -236,7 +236,7 @@ var touch_position, touch_stop; // Координата нажатия
  
 function turn_start(event) {
     touch_position = event.touches[0].pageX;
-    alert('нажато х='+touch_position);
+//    alert('нажато х='+touch_position);
 }
 function turn_page(event) {
 	touch_stop = event.touches[0].pageX;
@@ -251,7 +251,8 @@ function turn_page(event) {
 }
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
-hand.addEventListener('touchstart', turn_start, false); //ontouchstart="turn_start(event);" ontouchmove="turn_page(event);
+hand.addEventListener('touchstart', turn_start, false); 
+hand.addEventListener('ontouchmove', turn_page, false);
 hand.addEventListener('touchend', turn_page, false);
 </script>
 </body>
