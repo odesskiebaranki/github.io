@@ -249,9 +249,10 @@ function turn_page(event) {
 		changeStory('-1');
 	};
 }
-document.body.addEventListener('keydown', goPage, true);
-document.body.addEventListener('touchstart', turn_start, true); //ontouchstart="turn_start(event);" ontouchmove="turn_page(event);
-document.body.addEventListener('touchend', turn_page, true);
+var hand = document.getElementsByTagName('body')[0];
+hand.addEventListener('keydown', goPage, false);
+hand.addEventListener('touchstart', turn_start, false); //ontouchstart="turn_start(event);" ontouchmove="turn_page(event);
+hand.addEventListener('touchend', turn_page, false);
 </script>
 </body>
 </html>
