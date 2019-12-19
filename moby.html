@@ -244,19 +244,19 @@ function goPage(e){
 			break;
 	};
 }
-var touch_position, touch_stop; // Координата нажатия
+var touch_positionX, touch_positionY, touch_stopX, touch_stopY; // Координата нажатия
  
 function turn_start(event) {
 	touch_positionX = event.touches[0].pageX;
-	touch_positionY = event.touches[0].pageX;
-//	document.getElementById('tmp').innerHTML='start='+touch_position;
+	touch_positionY = event.touches[0].pageY;
+	document.getElementById('tmp').innerHTML='start x:y='+touch_positionX+':'+touch_positionY;
 }
 function turn_page(event) {
 	touch_stopX = event.changedTouches[0].pageX;
 	touch_stopY = event.changedTouches[0].pageY;
 //	document.getElementById('tmp').innerHTML='start:stop='+':'+touch_stop;
 	let tmp_moveX = touch_positionX-touch_stopX;
-	let tmp_moveY = touch_position-touch_stopY;
+	let tmp_moveY = touch_positionY-touch_stopY;
 	if (Math.abs(tmp_move)<10 || Math.abs(tmp_moveY)) { return false; };
 	if (tmp_moveX<0 || tmp_moveY<0) {
 		changeStory('+1');
