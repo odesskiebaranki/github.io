@@ -114,10 +114,10 @@ html {
 	position: absolute;
 	bottom: 10px;
 	right: 0%;
-	display: inline-block;
-	margin: 10px;
-	padding: 4px;
-	outline: 1px solid #fff;
+	display: inline-block; /* Ширина блока равна ширине содержимого */
+	margin: 10px; /* Задаём пространство вокруг блока */
+	padding: 4px; /* Толщина внутренней рамки */
+	outline: 1px solid #fff; /* Белая рамка вокруг блока */
 	font-size: 32px;
 	font-weight: bold;
 	color: #ff0000;
@@ -251,9 +251,11 @@ function turn_start(event) {
     document.getElementById('tmp').innerHTML='start='+touch_position;
 }
 function turn_page(event) {
-	touch_stop = event.touches[0].pageX;
-    document.getElementById('tmp').innerHTML='start:stop='+touch_position+':'+touch_stop;
-    let tmp_move = touch_position-touch_stop;
+	touch_stop = event.changedTouches[0].pageX;
+	document.getElementById('tmp').innerHTML='start:st op='+':'+touch_stop;
+//	touch_stop = event.touches[0].pageX;
+//	document.getElementById('tmp').innerHTML='start:stop='+touch_position+':'+touch_stop;
+	let tmp_move = touch_position-touch_stop;
 	if (Math.abs(tmp_move)<10) { return false; };
 	if (tmp_move<0) {
 		changeStory('+1');
@@ -264,7 +266,7 @@ function turn_page(event) {
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('touchstart', turn_start, false); 
-hand.addEventListener('ontouchmove', turn_page, false);
+//hand.addEventListener('ontouchmove', turn_page, false);
 hand.addEventListener('touchend', turn_page, false);
 </script>
 </body>
