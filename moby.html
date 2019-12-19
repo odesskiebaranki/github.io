@@ -247,17 +247,18 @@ function goPage(e){
 var touch_position, touch_stop; // Координата нажатия
  
 function turn_start(event) {
-    touch_position = event.touches[0].pageX;
-    document.getElementById('tmp').innerHTML='start='+touch_position;
+	touch_positionX = event.touches[0].pageX;
+	touch_positionY = event.touches[0].pageX;
+//	document.getElementById('tmp').innerHTML='start='+touch_position;
 }
 function turn_page(event) {
-	touch_stop = event.changedTouches[0].pageX;
-	document.getElementById('tmp').innerHTML='start:st op='+':'+touch_stop;
-//	touch_stop = event.touches[0].pageX;
-//	document.getElementById('tmp').innerHTML='start:stop='+touch_position+':'+touch_stop;
-	let tmp_move = touch_position-touch_stop;
-	if (Math.abs(tmp_move)<10) { return false; };
-	if (tmp_move<0) {
+	touch_stopX = event.changedTouches[0].pageX;
+	touch_stopY = event.changedTouches[0].pageY;
+//	document.getElementById('tmp').innerHTML='start:stop='+':'+touch_stop;
+	let tmp_moveX = touch_positionX-touch_stopX;
+	let tmp_moveY = touch_position-touch_stopY;
+	if (Math.abs(tmp_move)<10 || Math.abs(tmp_moveY)) { return false; };
+	if (tmp_moveX<0 || tmp_moveY<0) {
 		changeStory('+1');
 	} else {
 		changeStory('-1');
@@ -266,7 +267,6 @@ function turn_page(event) {
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('touchstart', turn_start, false); 
-//hand.addEventListener('ontouchmove', turn_page, false);
 hand.addEventListener('touchend', turn_page, false);
 </script>
 </body>
