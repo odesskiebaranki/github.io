@@ -254,7 +254,7 @@ function turn_start(event) {
 function turn_page(event) {
 	touch_stopX = event.changedTouches[0].pageX;
 	touch_stopY = event.changedTouches[0].pageY;
-	document.getElementById('tmp').innerHTML='start:stop x:y='+'+touch_stopX+':'+touch_stopY;
+	document.getElementById('tmp').innerHTML='start:stop x:y='+touch_stopX+':'+touch_stopY;
 	let tmp_moveX = touch_positionX-touch_stopX;
 	let tmp_moveY = touch_positionY-touch_stopY;
 	if (Math.abs(tmp_move)<10 || Math.abs(tmp_moveY)) { return false; };
