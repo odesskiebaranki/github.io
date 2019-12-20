@@ -275,6 +275,8 @@ var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
+hand.addEventListener('mousedown',turn_start,false);
+hand.addEventListener('mouseup',turn_page,false);
 </script>
 </body>
 </html>
