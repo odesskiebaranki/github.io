@@ -187,14 +187,14 @@ function getAutoPlay(){
   	<br/><img src="img/Babichenko.jpg" style="float: left; margin: 5px; width: 25%; height: auto;" title="Автопортрет Иры">
   	Автор рисунков одесский художник Ирина Бабиченко
   	<br/>Страница Ирины в сети <a href="https://www.facebook.com/profile.php?id=100012223688631" target="_blank">Facebook</a>
-  	<br/>Свободные картины Ирины можно у неё же приобрести, написав ей на <a href="mailto:ira4272@gmail.com" target="_blank">почту</a>.
+  	<br/>Свободные картины Ирины можно у неё же приобрести, написав ей на <a href="mailto:ira4272@gmail.com?subject=odesskiebaranki" target="_blank">почту</a>.
   </p>
   <p>
   	<br/>
   	<br/><img src="img/swa.jpg" style="float: left; margin: 5px; width: 25%; height: auto;" title="Подарок художника из Венгрии Елены Андерсовой">
   	Автор текстов и создатель этого сайта Вадим Сиротенко, г.Свердловск.
   	<br/>Страница Вадима в том же <a href="https://www.facebook.com/feist.vadim" target="_blank">Facebook</a>
-  	<br/>Мне можно писать на <a href="mailto:sirotenkovadim@gmail.com" target="_blank">почту</a>.
+  	<br/>Мне можно писать на <a href="mailto:sirotenkovadim@gmail.com?subject=odesskiebaranki" target="_blank">почту</a>.
   </p>
 </div>
 <div id="textstory" class="sidenav">
@@ -258,15 +258,18 @@ function mouseStop(event){
     	stopX = event.pageX;
     	stopY = event.pageY;
     };
-	if (startX<stopX){
-		changeStory('-1');
-	} else {
-		changeStory('+1');
-	};
-	if (startY<stopY){
-		changeStory('+1');
-	} else {
-		changeStory('-1');
+    if(Math.abs(stopX-startX)>Math.abs(stopY-startY)) {
+		if (startX<stopX){
+			changeStory('+1');
+		} else {
+			changeStory('-1');
+		};
+	}else{	
+		if (startY<stopY){
+			changeStory('+1');
+		} else {
+			changeStory('-1');
+		};
 	};
 }
 function turn_start(event) {
