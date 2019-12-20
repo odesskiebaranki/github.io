@@ -250,10 +250,18 @@ var startX, stopX, startY, stopY;
 function turn_start(event) {
     startX = event.touches[0].pageX;
     startY = event.touches[0].pageY;
+    if(event.which==1) {
+    	startX = event.pageX;
+    	startY = event.pageY;
+    };
 }
 function turn_page(event) {
 	stopX = event.changedTouches[0].pageX;
 	stopY = event.changedTouches[0].pageY;
+    if(event.which==1) {
+    	stopX = event.pageX;
+    	stopY = event.pageY;
+    };
     let moveX = stopX-startX;
     let moveY = stopY-startY;
 	if (Math.abs(moveX)<10 && Math.abs(moveX)<10) { return false; };
