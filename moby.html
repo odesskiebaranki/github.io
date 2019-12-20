@@ -254,8 +254,10 @@ function turn_start(event) {
     document.getElementById('tmp_info').innerHTML='X1='+startX+' Y1='+startY;
 }
 function turn_page(event) {
-	stopX = event.touches[0].pageX;
-	stopY = event.touches[0].pageY;
+//	stopX = event.touches[0].pageX;
+//	stopY = event.touches[0].pageY;
+	stopX = event.changedTouches[0].pageX;
+	stopY = event.changedTouches[0].pageY;
     document.getElementById('tmp_info').innerHTML='X1='+startX+' Y1='+startY+'\nstopX='+stopX+' stopY='+stopY;
     let moveX = stopX-startX;
     let moveY = stopY-startY;
