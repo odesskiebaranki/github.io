@@ -258,21 +258,15 @@ function mouseStop(event){
     	stopX = event.pageX;
     	stopY = event.pageY;
     };
-    let moveX = stopX-startX;
-    let moveY = stopY-startY;
-	if (Math.abs(moveX)<10 && Math.abs(moveX)<10) { return false; };
-	if (moveX>=moveY){
-		if (moveX<0) {
-			changeStory('-1');
-		} else {
-			changeStory('+1');
-		};
-	}else{
-		if (moveY<0) {
-			changeStory('+1');
-		} else {
-			changeStory('-1');
-		};
+	if (startX<stopX){
+		changeStory('-1');
+	} else {
+		changeStory('+1');
+	};
+	if (startY<stopY){
+		changeStory('+1');
+	} else {
+		changeStory('-1');
 	};
 }
 function turn_start(event) {
