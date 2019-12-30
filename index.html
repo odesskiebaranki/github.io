@@ -104,7 +104,6 @@ html {
     text-shadow: 2px 2px 2px #c6c4c4, 0 0 1em #c7c5c5;
 }
 .sidenav p {
-/*    padding: 8px 8px 8x 32px;*/
     padding: 2px 5px 5x 15px;
     text-decoration: none;
     font-size: 25px;
@@ -116,7 +115,7 @@ html {
 	position: absolute;
 	bottom: 10px;
 	right: 0%;
-/*	display: inline-block;*/
+	display: inline-block;
 	margin: 10px;
 	padding: 4px;
 	outline: 1px solid #fff;
@@ -127,40 +126,12 @@ html {
 	border-radius: 50% 50% 50% 50%;
 	cursor: pointer;
 }
-.tmp_info {
-	position: absolute;
-	bottom: 15px;
-	border: 3px;
-	right: 15%;
-}
 @media screen and (max-height: 100%) {
 	.sidenav {padding-top: 15px;}
 	.sidenav a {font-size: 18px;}
 }
 </style>
-</head>
 <script>
-var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-// if(isMobile.any()){ /* мобильный */ };
-};
 var max_idx=43;
 var idx=1;
 function getCookie(name) {
@@ -204,14 +175,12 @@ function getAutoPlay(){
 <span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
 <span style="font-size:30px; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Помощь" onclick="openNav('manage')">☰</span>
 <span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#9998;</span>
-<span class="reader_age" style="border: 0;" title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('manage')">18+</span>
+<span class="reader_age"  title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('manage')">18+</span>
 <div id="manage" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('manage')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<p>Во многих рассказах, как, впрочем, и в жизни, мы таки часто услышим матершинку, а сие нежелательно для детей до 18 лет... Поэтому мы таки рекомендуем не врубать громкость так, чтобы оно орало на весь район!</p>
 	<p>
-	Для листания картинок предусмотрены стилизованные, в виде любопытного носа, стрелочки:
-	<br /><img src="img/nose_right.png" style="float: left; width: 24px; height: auto;">&nbsp; – листание вперёд ("тудой");
-	<br /><img src="img/nose_left.png" style="float: left; width: 24px; height: auto;">&nbsp; – листание назад ("сюдой");
+	Для листания картинок: 
 	<br />На устройствах с клавиатурой можно пользоваться стрелочками клавиатуры: вправо или влево;
 	<br />На устройствах с сенсорным экраном для листания вперёд/назад достаточно провести пальцем по экрану вправо или влево;
 	</p>
@@ -248,13 +217,14 @@ function getAutoPlay(){
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('textstory')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<iframe id="showText" frameborder="no" seamless width="100%" height="85%" style="font-size:14px;" src=""></iframe>
 </div>
-<div id="tmp" class="tmp_info"></div>
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" controls="true" controlsList="nodownload"></audio>
 	<img id="autoplay" style="float: right; margin-top: 2%;" src="img/start.png" onclick="getAutoPlay()" title="Включить автоматическое проигрывание">
 </div>
+<!--
 <div id="arrow_right" class="arroundright"><img id="tuda" class="arrows_right" src="img/nose_right.png" title="Тудой!" onclick="changeStory('+1');"></div>
 <div id="arrow_left" class="arroundleft"><img id="suda" class="arrows_left" src="img/nose_left.png" title="Сюдой!" onclick="changeStory('-1');"></div>
+-->
 <script>
 var page = parseInt(getCookie('page'));
 if(isNaN(page) || page === undefined){
@@ -269,11 +239,9 @@ document.getElementById('showText').src = 'text/'+idx+'.txt';
 
 function openNav(win) {
 	document.getElementById(win).style.width = "43%";
-//	document.getElementById('pictIB').addEventListener("click", closeNav, true);
 }
 function closeNav(win) {
 	document.getElementById(win).style.width = "0%";
-//	document.getElementById('pictIB').removeEventListener("click", closeNav, true);
 }
 function goPage(e){
 	switch(e.keyCode){
@@ -296,44 +264,22 @@ var startX, stopX, startY, stopY;
  
 function turn_start(event) {
 	startX = event.touches[0].pageX;
-//	startY = event.touches[0].pageY;
 }
 function turn_page(event) {
 	stopX = event.changedTouches[0].pageX;
 	stopY = event.changedTouches[0].pageY;
 	let moveX = stopX-startX;
-//	let moveY = stopY-startY;
 	if (Math.abs(moveX)<20) { return false; };
-//	if (Math.abs(moveX)<20 && Math.abs(moveY)<20) { return false; };
 	if (moveX<0) {
 		changeStory('-1');
 	} else {
 		changeStory('+1');
 	};
-/*
-	if (moveX>=moveY){
-		if (moveX<0) {
-			changeStory('-1');
-		} else {
-			changeStory('+1');
-		};
-	}else{
-		if (moveY<0) {
-			changeStory('+1');
-		} else {
-			changeStory('-1');
-		};
-	};
-*/
 }
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
-if(isMobile.any()){
-	document.getElementById('arrow_right').style.display='none';
-	document.getElementById('arrow_left').style.display='none';
-};
 </script>
 </body>
 </html>
