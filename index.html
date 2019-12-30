@@ -280,7 +280,7 @@ function turn_page(event) {
 var isHelpShowe = parseInt(getCookie('showe'));
 if(isNaN(isHelpShowe) || isHelpShowe === undefined){
 	openNav('manage');
-	document.cookie = name + '=1' + '; max-age='+3600*24*31;	
+	setCookie('showe',1);	
 };
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
