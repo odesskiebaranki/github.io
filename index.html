@@ -140,6 +140,27 @@ html {
 </style>
 </head>
 <script>
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+// if(isMobile.any()){ /* мобильный */ };
+};
 var max_idx=43;
 var idx=1;
 function getCookie(name) {
@@ -180,17 +201,15 @@ function getAutoPlay(){
 </script>
 </head>
 <body id="pictIB">
-<span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
-<span style="font-size:30px; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Помощь" onclick="openNav('manage')">☰</span>
+<span style="font-size:33px; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
+<span style="font-size:30px; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Помощь" onclick="openNav('manage')">☰</span>
 <span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#9998;</span>
-<span class="reader_age" title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('manage')">18+</span>
+<span class="reader_age" title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('mat')">18+</span>
 <div id="manage" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('manage')" title="Закрыть">&nbsp;×&nbsp;</a>
-	<p>Во многих рассказах, как, впрочем, и в жизни, мы таки часто услышим матершинку, а сие нежелательно для детей до 18 лет... Поэтому мы таки рекомендуем не врубать громкость так, чтобы оно орало на весь район!</p>
-	<p>
-	Для листания картинок:
-	<br />&#10002;&nbsp;на устройствах с клавиатурой можно пользоваться стрелочками клавиатуры: вправо или влево;
-	<br />&#10002;&nbsp;на устройствах с сенсорным экраном для листания вперёд/назад достаточно провести пальцем по экрану вправо или влево;
+	<p>Для листания картинок:
+	<br />На устройствах с клавиатурой можно пользоваться стрелочками клавиатуры: вправо или влево;
+	<br />На устройствах с сенсорным экраном для листания вперёд/назад достаточно провести пальцем по экрану вправо или влево;
 	</p>
 	<p>Рассказик можно послушать, а можно прочитать:
 	<br />Кнопочка справа вверху <span style="font-weight: 700;">&#9998;</span> открывает окошко с текстом.
@@ -220,6 +239,13 @@ function getAutoPlay(){
 	<br/>Мне можно писать на <a href="mailto:sirotenkovadim@gmail.com" target="_blank">почту</a>.
 	</p>
 	</div>
+</div>
+<div id="mat" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('mat')" title="Закрыть">&nbsp;×&nbsp;</a>
+	<p>Так-как тырнетный сайт считается за средство массовой информации, то велено указывать на какой возраст оно, в смысле, СМИ, рассчитано.</p>
+	<p></p>
+	<p>Во многих рассказах, как, впрочем, и в жизни, мы таки часто услышим матершинку, а сие нежелательно для детей до 18 лет... Поэтому мы таки рекомендуем не врубать громкость так, чтобы оно орало на весь район!</p>
+	<p>Дык вот из-за наличия матершинки наш сайтик рассчитан на возраст&nbsp;<span style="font-weight: bold; color: #ff0000;">18+</span></p>
 </div>
 <div id="textstory" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('textstory')" title="Закрыть">&nbsp;×&nbsp;</a>
@@ -305,6 +331,10 @@ var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
+if(isMobile.any()){
+	document.getElementById('arrow_right').style.display='none';
+	document.getElementById('arrow_left').style.display='none';
+};
 </script>
 </body>
 </html>
