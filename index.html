@@ -164,7 +164,6 @@ var isMobile = {
 var max_idx=43;
 var idx=1;
 function getCookie(name) {
-//	return document.cookie.replace(/(?:(?:^|.*;\s*)page\s*\=\s*([^;]*).*$)|^.*$/, "$1");
 	let matches = document.cookie.match(new RegExp(
 		"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
 	));
@@ -318,10 +317,6 @@ var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
-if(isMobile.any()){
-	document.getElementById('arrow_right').style.display='none';
-	document.getElementById('arrow_left').style.display='none';
-};
 if (getCookie('help') != 1) {
 	openNav('manage');
 	setCookie('help', 1);
