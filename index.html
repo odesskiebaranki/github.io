@@ -300,13 +300,15 @@ function mouseStart(event){
 	};
 }
 function mouseStop(event){
-	stopX = event.clientX;
-	if(Math.abs(stopX-startX)<20) return false;
-	if(startX<stopX) {
-		changeStory('+1');
-	}else{
-		changeStory('-1');
-	}
+	if(event.which==1){
+		stopX = event.clientX;
+		if(Math.abs(stopX-startX)<20) return false;
+		if(startX<stopX) {
+			changeStory('+1');
+		}else{
+			changeStory('-1');
+		};
+	};
 }
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
