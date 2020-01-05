@@ -253,11 +253,18 @@ document.getElementById('showText').src = 'text/'+idx+'.txt';
 
 function openNav(win) {
 	document.getElementById(win).style.width = "43%";
-//	document.getElementById('pictIB').addEventListener("click", closeNav, true);
+	let hand = document.getElementsByTagName('body')[0];
+	hand.removeEventListener('touchstart', turn_start, false); 
+	hand.removeEventListener('touchend', turn_page, false);
+	hand.removeEventListener('mousedown', mouseStart, false);
+	hand.removeEventListener('mouseup',mouseStop,false);
 }
 function closeNav(win) {
 	document.getElementById(win).style.width = "0%";
-//	document.getElementById('pictIB').removeEventListener("click", closeNav, true);
+	let hand = document.getElementsByTagName('body')[0];
+	hand.addEventListener('touchstart', turn_start, false); 
+	hand.addEventListener('touchend', turn_page, false);
+	hand.addEventListener('mousedown', mouseStart, false);
 }
 function goPage(e){
 	switch(e.keyCode){
