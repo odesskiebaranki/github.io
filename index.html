@@ -258,6 +258,7 @@ function openNav(win) {
 	hand.removeEventListener('touchend', turn_page, false);
 	hand.removeEventListener('mousedown', mouseStart, false);
 	hand.removeEventListener('mouseup',mouseStop,false);
+	hand.removeEventListener('keydown', goPage, false);
 }
 function closeNav(win) {
 	document.getElementById(win).style.width = "0%";
@@ -265,6 +266,7 @@ function closeNav(win) {
 	hand.addEventListener('touchstart', turn_start, false); 
 	hand.addEventListener('touchend', turn_page, false);
 	hand.addEventListener('mousedown', mouseStart, false);
+	hand.addEventListener('keydown', goPage, false);
 }
 function goPage(e){
 	switch(e.keyCode){
