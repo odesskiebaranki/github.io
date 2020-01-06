@@ -6,6 +6,11 @@
 <title>Одесские баранки.&nbsp;¯\_(ツ)_/¯</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="author" content="текст Вадим Сиротенко, художник Ирина Бабиченко">
+<meta property="og:url" content="https://odesskiebaranki.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Одесские баранки" />
+<meta property="og:description" content="Дурашливые истории" />
+<meta property="og:image" content="https://odesskiebaranki.github.io/img/oldlighthouse.jpg" />
 <style>
 html {
 	height: 100%;
@@ -186,9 +191,12 @@ function getAutoPlay(){
 </script>
 </head>
 <body id="pictIB">
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0&appId=1559991960821213&autoLogAppEvents=1"></script>
 <span style="font-size:33px; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
 <span style="font-size:30px; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Помощь" onclick="openNav('manage')">☰</span>
 <span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#9998;</span>
+<div style="position: absolute; bottom: 25px; right: 4%; font-weight: 600;" class="fb-like" data-href="https://odesskiebaranki.github.io/" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="true"></div>
 <span class="reader_age" title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('mat')">18+</span>
 <div id="manage" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('manage')" title="Закрыть">&nbsp;×&nbsp;</a>
@@ -252,7 +260,6 @@ document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 document.getElementById('story').src='audio/'+idx+'.wav';
 document.getElementById('story').pause();
 document.getElementById('showText').src = 'text/'+idx+'.txt';
-
 function openNav(win) {
 	document.getElementById(win).style.width = "43%";
 	let hand = document.getElementsByTagName('body')[0];
@@ -286,7 +293,6 @@ function goPage(e){
 			break;
 	};
 }
-
 var startX, stopX, startY, stopY;
  
 function turn_start(event) {
