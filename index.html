@@ -145,10 +145,9 @@ html {
 	.sidenav a {font-size: 18px;}
 }
 </style>
-</head>
 <script>
 document.oncontextmenu = function (){return false};
-var max_idx=54;
+var max_idx=43;
 var idx=1;
 function getCookie(name) {
 	let matches = document.cookie.match(new RegExp(
@@ -159,6 +158,9 @@ function getCookie(name) {
 function setCookie(name, value) {
 	document.cookie = name + '=' + value + '; max-age='+3600*24*31;
 }
+function getURL(name){
+	alert(name);
+}
 function changeStory(arg){
 	idx=idx+(parseInt(arg));
 	if(idx<1)idx=max_idx;
@@ -166,7 +168,7 @@ function changeStory(arg){
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
 	document.getElementById('showText').src = 'text/'+idx+'.txt';
-	document.getElementById('fblike').setAttribute('data-href', 'https://odesskiebaranki.is/img/'+idx+'.jpg');
+	document.getElementById('tumblr').setAttribute('data-content', 'https://odesskiebaranki.github.io/img/'+idx+'.jpg');
 	if(document.getElementById('autoplay').src.indexOf('start.png')>0) {
 		document.getElementById('story').pause();
 	}else{
@@ -191,13 +193,23 @@ function getAutoPlay(){
 }
 </script>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0&appId=1559991960821213&autoLogAppEvents=1"></script>
+<script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
 </head>
 <body id="pictIB">
-<span style="font-size:33px; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
 <span style="font-size:30px; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Помощь" onclick="openNav('manage')">☰</span>
+<span style="font-size:33px; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
+<span style="font-size:30px; cursor:pointer; position: absolute; top: 22%; left: 2%;" title="Отблагодарить" onclick="openNav('thanks')">&#9749;</span>
 <span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#9998;</span>
-<div id="fblike" style="position: absolute; bottom: 25px; right: 4%; font-weight: 600;" class="fb-like" data-href="https://odesskiebaranki.github.io/" data-width="" data-layout="button" data-action="like" data-size="small" data-share="false"></div>
 <span class="reader_age" title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('mat')">18+</span>
+<div id="fblike" style="position: absolute; bottom: 25px; right: 6%; font-weight: 600;" class="fb-like" data-href="https://odesskiebaranki.github.io/" data-width="" data-layout="button" data-action="like" data-size="small" data-share="false"></div>
+<div id="tumb" style="position: absolute; bottom: 2%; right: 12%; font-weight: 600;">
+<a id="tumblr" style="position: absolute; bottom: 2%; right: 9%; font-weight: 600;" class="tumblr-share-button" 
+data-posttype="photo" 
+data-content="https://odesskiebaranki.github.io/img/oldlighthouse.jpg" 
+data-locale="ru_RU" 
+data-href="https://odesskiebaranki.github.io/" 
+>Tumblir</a>
+</div>
 <div id="manage" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('manage')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<p>Для листания картинок:
@@ -249,25 +261,46 @@ function getAutoPlay(){
 	<audio id="story" src="audio/1.wav" controls="true" controlsList="nodownload"></audio>
 	<img id="autoplay" style="float: right; margin-top: 2%;" src="img/start.png" onclick="getAutoPlay()" title="Включить автоматическое проигрывание">
 </div>
+<div id="thanks" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('thanks')" title="Закрыть">&nbsp;×&nbsp;</a>
+	Вы можете перевести любую посильную сумму в благодарность автору
+	<div id="money" class="art">
+		<iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%20%D0%B8%20%D0%B1%D0%BB%D0%B0%D0%B3%D0%BE%D0%B4%D0%B0%D1%80%D0%BD%D0%BE%D1%81%D1%82%D1%8C&targets-hint=&default-sum=50&button-text=11&payment-type-choice=on&mobile-payment-type-choice=on&comment=on&hint=%D0%9F%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D1%8C%D1%82%D0%B5%D1%81%D1%8C%2C%20%D0%B5%D1%81%D0%BB%D0%B8%20%D0%BD%D0%B5%20%D1%81%D0%BB%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B8%20%D0%BD%D0%B5%20%D1%82%D0%B0%D0%B9%D0%BD%D0%B0&successURL=&quickpay=shop&account=410014716327015" width="450px" height="350px" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+	</div>
+</div>
 <script>
 var page = parseInt(getCookie('page'));
+var nawWidth = parseInt(getCookie('width'));
 if(isNaN(page) || page === undefined){
 	idx=1;
 }else{
 	idx=page;
 };
+if(isNaN(nawWidth) || nawWidth === undefined){
+	nawWidth = '43%';
+}else{
+	nawWidth = nawWidth+'px';
+}
+
 document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 document.getElementById('story').src='audio/'+idx+'.wav';
 document.getElementById('story').pause();
 document.getElementById('showText').src = 'text/'+idx+'.txt';
 function openNav(win) {
-	document.getElementById(win).style.width = "43%";
+//	document.getElementById(win).style.width = "43%";
+	document.getElementById(win).style.width = nawWidth;
 	let hand = document.getElementsByTagName('body')[0];
 	hand.removeEventListener('touchstart', turn_start, false); 
 	hand.removeEventListener('touchend', turn_page, false);
 	hand.removeEventListener('mousedown', mouseStart, false);
 	hand.removeEventListener('mouseup',mouseStop,false);
 	hand.removeEventListener('keydown', goPage, false);
+	document.getElementById(win).addEventListener(touchstart, turn_start, false);
+	document.getElementById(win).addEventListener(touchmove, navResize, false);
+}
+function navResize() {
+	let mResize = stopX-startX;
+	document.getElementsByClassName('sidenav').style.width+=mResize;
 }
 function closeNav(win) {
 	document.getElementById(win).style.width = "0%";
@@ -276,6 +309,11 @@ function closeNav(win) {
 	hand.addEventListener('touchend', turn_page, false);
 	hand.addEventListener('mousedown', mouseStart, false);
 	hand.addEventListener('keydown', goPage, false);
+
+	document.getElementById(win).removeEventListener(touchstart, turn_start, false);
+	document.getElementById(win).removeEventListener(touchmove, navResize, false);
+	setCookie('width', nawWidth);
+	alert('cookie width='+nawWidth);
 }
 function goPage(e){
 	switch(e.keyCode){
@@ -327,11 +365,18 @@ function mouseStop(event){
 		};
 	};
 }
+function setShowSN(event){
+	let i2 = document.getElementById('tumblr').getAttribute('data-content');
+//	alert(i2);
+//	document.getElementById('tumblr').setAttribute('data-content', 'https://odesskiebaranki.github.io/img/'+idx+'.jpg');	
+//	alert('Tumbler data-content: '+document.getElementById('tumblr').getAttribute('data-content'));
+}
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
 hand.addEventListener('mousedown', mouseStart, false);
+document.getElementById('tumb').addEventListener('mouseover', setShowSN, false);
 if (getCookie('help') != 1) {
 	openNav('manage');
 	setCookie('help', 1);
