@@ -6,6 +6,8 @@
 <title>Одесские баранки.&nbsp;¯\_(ツ)_/¯</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="author" content="текст Вадим Сиротенко, художник Ирина Бабиченко">
+<meta name="title" content="Одесские еврейские истории">
+<meta name="description" content="Еврейские анекдоты об Одессе">
 <meta property="og:url" content="https://odesskiebaranki.github.io/" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Одесские баранки" />
@@ -192,24 +194,13 @@ function getAutoPlay(){
 	};
 }
 </script>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v5.0&appId=1559991960821213&autoLogAppEvents=1"></script>
-<script id="tumblr-js" async src="https://assets.tumblr.com/share-button.js"></script>
 </head>
 <body id="pictIB">
-<span style="font-size:30px; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Помощь" onclick="openNav('manage')">☰</span>
+<span style="font-size:30px; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Помощь" onclick="openNav('manage')">&#9776;</span>
 <span style="font-size:33px; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
 <span style="font-size:30px; cursor:pointer; position: absolute; top: 22%; left: 2%;" title="Отблагодарить" onclick="openNav('thanks')">&#9749;</span>
-<span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#9998;</span>
+<span style="font-size:33px; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#10000;</span>
 <span class="reader_age" title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('mat')">18+</span>
-<div id="fblike" style="position: absolute; bottom: 25px; right: 6%; font-weight: 600;" class="fb-like" data-href="https://odesskiebaranki.github.io/" data-width="" data-layout="button" data-action="like" data-size="small" data-share="false"></div>
-<div id="tumb" style="position: absolute; bottom: 2%; right: 12%; font-weight: 600;">
-<a id="tumblr" style="position: absolute; bottom: 2%; right: 9%; font-weight: 600;" class="tumblr-share-button" 
-data-posttype="photo" 
-data-content="https://odesskiebaranki.github.io/img/oldlighthouse.jpg" 
-data-locale="ru_RU" 
-data-href="https://odesskiebaranki.github.io/" 
->Tumblir</a>
-</div>
 <div id="manage" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('manage')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<p>Для листания картинок:
@@ -217,7 +208,7 @@ data-href="https://odesskiebaranki.github.io/"
 	провести мышкой вправо("пролистнуть" вперёд) или влево (назад).</p>
 	<p>На устройствах с сенсорным экраном для листания вперёд/назад достаточно провести пальцем по экрану вправо или влево.</p>
 	<p>Рассказик можно послушать, а можно прочитать:
-	<br />Кнопочка справа вверху <span style="font-weight: 700;">&#9998;</span> открывает окошко с текстом.
+	<br />Кнопочка справа вверху <span style="font-weight: 700;">&#10000;</span> открывает окошко с текстом.
 	</p>
 	<p>
 	Прослушивание записанного рассказа.<br />
@@ -241,7 +232,7 @@ data-href="https://odesskiebaranki.github.io/"
 	<img src="img/swa.jpg" style="left: 0px; float: left; margin: 5px; width: 25%; height: auto;" title="Подарок художника из Венгрии Елены Андерсовой">
 	Автор текстов и создатель этого сайта Вадим Сиротенко, г.Свердловск.
 	<br/>Другие рассказики можно поглядеть на <a href="https://www.tumblr.com/blog/wadimsirotenko" target="_blank">"тумблере"<a/>
-	<br/>Мне можно писать на <a href="mailto:sirotenkowadim@gmail.com" target="_blank">почту</a>.
+	<br/>Мне можно писать на <a href="mailto:sirotenkovadim@gmail.com" target="_blank">почту</a>.
 	</p>
 	</div>
 </div>
@@ -367,9 +358,6 @@ function mouseStop(event){
 }
 function setShowSN(event){
 	let i2 = document.getElementById('tumblr').getAttribute('data-content');
-//	alert(i2);
-//	document.getElementById('tumblr').setAttribute('data-content', 'https://odesskiebaranki.github.io/img/'+idx+'.jpg');	
-//	alert('Tumbler data-content: '+document.getElementById('tumblr').getAttribute('data-content'));
 }
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
