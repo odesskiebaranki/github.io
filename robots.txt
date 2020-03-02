@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /robots.txt
+Disallow: /img/
+Disallow: /audio/
+
+Host: https://odesskiebaranki.github.io/
+
+Sitemap: https://odesskiebaranki.github.io/sitemap.xml
