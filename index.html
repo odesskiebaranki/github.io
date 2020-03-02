@@ -277,8 +277,26 @@ function turn_page(event) {
 		changeStory('+1');
 	};
 }
+function mouseStart(event){
+	if(event.which==1){
+		document.getElementsByTagName('body')[0].addEventListener('mouseup',mouseStop,false);
+		startX = event.clientX;
+	};
+}
+function mouseStop(event){
+	if(event.which==1){
+		stopX = event.clientX;
+		if(Math.abs(stopX-startX)<20) return false;
+		if(startX<stopX) {
+			changeStory('+1');
+		}else{
+			changeStory('-1');
+		};
+	};
+}
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
+hand.addEventListener('mousedown', mouseStart, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
 </script>
