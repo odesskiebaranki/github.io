@@ -330,7 +330,7 @@ function mouseStop(event){
 }
 //if(parseInt(getCookie('rule'))!=1) {
 alert('parseInt(getCookie(\'rule\')='+parseInt(getCookie('rule')));
-if(!isNaN(getCookie('rule')) && parseInt(getCookie('rule'))!=1) {
+if(isNaN(getCookie('rule'))) {
 	openNav('manage');
 	setCookie('rule', 1);
 };
