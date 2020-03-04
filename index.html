@@ -332,7 +332,7 @@ hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('mousedown', mouseStart, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
-if(parseInt(getCookie('rule'))!=1) {
+if(isNaN(getCookie('rule')) {
 	openNav('manage');
 	setCookie('rule', 1);
 };
