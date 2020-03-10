@@ -155,6 +155,17 @@ function changeStory(arg){
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
 	document.getElementById('showText').src = 'text/'+idx+'.txt';
+
+	document.addEventListener('DOMContentLoaded', () => {
+	let ifr = document.getElementById('showText');
+	ifr.addEventListener ('load', () => {
+		let difr = ifr.contentDocument;
+		difr.body.style.color = 'red';
+		difr.body.style.fontSize = '200%';
+	})
+	ifr.src = 'text/'+idx+'.txt';
+	});
+
 	if(document.getElementById('autoplay').src.indexOf('start.png')>0) {
 		document.getElementById('story').pause();
 	}else{
