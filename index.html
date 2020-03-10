@@ -154,7 +154,7 @@ function changeStory(arg){
 	if(idx>max_idx)idx=1;
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 	document.getElementById('story').src='audio/'+idx+'.wav';
-	document.getElementById('showText').src = 'text/'+idx+'.txt';
+//	document.getElementById('showText').src = 'text/'+idx+'.txt';
 
 	document.addEventListener('DOMContentLoaded', () => {
 	let ifr = document.getElementById('showText');
@@ -164,7 +164,7 @@ function changeStory(arg){
 		difr.body.style.fontSize = '200%';
 	})
 	ifr.src = 'text/'+idx+'.txt';
-	});
+	})
 
 	if(document.getElementById('autoplay').src.indexOf('start.png')>0) {
 		document.getElementById('story').pause();
