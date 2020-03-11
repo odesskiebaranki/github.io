@@ -164,6 +164,10 @@ function changeStory(arg){
 		difr.body.style.color = 'navy';
 		difr.body.style.fontSize = '200%';
 		difr.body.style.userSelect = 'none';
+
+		let script = document.createElement("script");
+		script.innerText = 'document.oncontextmenu = function (){return false};';
+		difr.body.appendChild(script);
 	})
 	ifr.src = 'text/'+idx+'.txt';
 	
