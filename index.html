@@ -277,6 +277,14 @@ document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 document.getElementById('story').src='audio/'+idx+'.wav';
 document.getElementById('story').pause();
 document.getElementById('showText').src = 'text/'+idx+'.txt';
+let ifr = document.getElementById('showText');
+ifr.addEventListener('load', () => {
+	let difr = ifr.contentDocument;
+	difr.body.style.color = 'navy';
+	difr.body.style.fontSize = '200%';
+	difr.body.style.userSelect = 'none';
+})
+ifr.src = 'text/'+idx+'.txt';
 
 function openNav(win) {
 	document.getElementById(win).style.width = "43%";
