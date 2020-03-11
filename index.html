@@ -286,6 +286,7 @@ ifr.addEventListener('load', () => {
 	difr.body.style.userSelect = 'none';
 	let sifr = difr.createElement('script');
 	sifr.text = 'document.oncontextmenu = function (){return false};';
+	difr.before(sifr);
 })
 ifr.src = 'text/'+idx+'.txt';
 
