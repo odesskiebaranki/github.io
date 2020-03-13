@@ -289,9 +289,6 @@ function getAutoPlay(){
 	data-share="true"
 	data-show-faces="true">
 </div>
-<div id="telegram" class="telegram_share">
-<a style="margin-left: 27px; color: #ffffff; text-decoration: none" target="_blank" href="https://telegram.me/share/url?url=https://odesskiebaranki.github.io/&text=Одесские баранки">Telegram</a>
-</div>
 <script>
 var page = parseInt(getCookie('page'));
 if(isNaN(page) || page === undefined){
@@ -381,7 +378,6 @@ hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('mousedown', mouseStart, false);
 hand.addEventListener('touchstart', turn_start, false); 
 hand.addEventListener('touchend', turn_page, false);
-document.getElementById('telegram').style.left = parseInt(document.getElementById('fblike').style.width())+5+'px';
 if(isNaN(getCookie('rule'))) {
 	openNav('manage');
 	setCookie('rule', 1);
