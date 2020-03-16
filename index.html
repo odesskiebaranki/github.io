@@ -210,6 +210,24 @@ function getAutoPlay(){
 		document.getElementById('story').removeEventListener("ended", handler, true);
 	};
 }
+function showPictures(){
+	document.getElementById('allPictures').innerHTML='';
+	document.getElementById('allPictures').innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav(\'allPictures\')" title="Закрыть">&nbsp;×&nbsp;</a><br>';
+	openNav('allPictures');
+	var nx=1;
+	while (nx<=idx){
+		let pict = document.createElement("img");
+		pict.setAttribute('id', 'pict_'+nx);
+		pict.setAttribute('src', 'img/'+nx+'.jpg');
+		pict.setAttribute('title', 'Перейти к картинке № '+nx);
+		pict.setAttribute('onclick', 'idx='+(nx-1)+';changeStory(1);closeNav(\'allPictures\')');
+		pict.style.height = '50px';
+		pict.style.width = 'auto';
+		pict.style.margin = '3px';
+		document.getElementById('allPictures').appendChild(pict);
+		nx++;
+	};
+}
 </script>
 </head>
 <body id="pictIB">
@@ -219,6 +237,7 @@ function getAutoPlay(){
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
 <span style="font-size:30px; color: mediumblue; cursor:pointer; position: absolute; top: 22%; left: 2%;" title="Благодарность"><a href="https://vadim-sirotenko.github.io/" target="_blank">&#9749;</a></span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 32%; left: 2%;" title="Конфидициальность" onclick="openNav('confidece')">&#9730;</span>
+<span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 42%; left: 2%;" title="Просмотренные странички" onclick="showPictures();">&#9850;</span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#9998;</span>
 <span class="reader_age"  title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('mat')">18+</span>
 <div id="manage" class="sidenav">
@@ -276,6 +295,9 @@ function getAutoPlay(){
 <div id="textstory" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('textstory')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<iframe id="showText" frameborder="no" seamless width="100%" height="85%" style="font-size:14px;" src=""></iframe>
+</div>
+<div id="allPictures" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('allPictures')" title="Закрыть">&nbsp;×&nbsp;</a>
 </div>
 <div class="ctrl">
 	<audio id="story" src="audio/1.wav" controls="true" controlsList="nodownload"></audio>
