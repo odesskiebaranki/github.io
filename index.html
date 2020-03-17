@@ -325,6 +325,7 @@ if(isNaN(page) || page === undefined){
 }else{
 	idx=page;
 };
+show_idx = idx;
 document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
 document.getElementById('story').src='audio/'+idx+'.wav';
 document.getElementById('story').pause();
