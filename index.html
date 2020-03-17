@@ -241,7 +241,8 @@ function showPictures(){
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v3.0"></script>
 <span style="font-size:30px; color: mediumblue; cursor:pointer; position: absolute; top: 2%; left: 2%;" title="Помощь" onclick="openNav('manage')">☰</span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 12%; left: 2%;" title="Об авторах" onclick="openNav('mySidenav')">&#9786;</span>
-<span style="font-size:30px; color: mediumblue; cursor:pointer; position: absolute; top: 22%; left: 2%;" title="Благодарность"><a href="https://vadim-sirotenko.github.io/" target="_blank">&#9749;</a></span>
+<!-- <span style="font-size:30px; color: mediumblue; cursor:pointer; position: absolute; top: 22%; left: 2%;" title="Благодарность"><a href="https://vadim-sirotenko.github.io/" target="_blank">&#9749;</a></span> -->
+<span style="font-size:30px; color: mediumblue; cursor:pointer; position: absolute; top: 22%; left: 2%;" title="Благодарность" onclick="openNav('thanks')>&#9749;</span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 32%; left: 2%;" title="Конфидициальность" onclick="openNav('confidece')">&#9730;</span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 42%; left: 2%;" title="Просмотренные странички" onclick="showPictures();">&#9850;</span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory')">&#9998;</span>
@@ -289,6 +290,10 @@ function showPictures(){
 	<br/>Мне можно писать на <a href="mailto:sirotenkowadim@gmail.com" target="_blank">почту</a>.
 	</p>
 	</div>
+</div>
+<div id="thanks" class="sidenav" style="height: 100%; width: 100%;">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('thanks')" title="Закрыть">&nbsp;×&nbsp;</a>
+	<iframe id="showText" frameborder="no" seamless width="100%" height="100%" style="font-size:14px;" src="https://vadim-sirotenko.github.io/"></iframe>
 </div>
 <div id="confidece" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('confidece')" title="Закрыть">&nbsp;×&nbsp;</a>
