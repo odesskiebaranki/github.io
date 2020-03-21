@@ -4,10 +4,3 @@ RewriteCond %{HTTPS} !on
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 # запретить индексирование
 Options -Indexes
-# запретить копирование картинок
-RewriteEngine on
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?odesskiebaranki.github.io/ [NC]
-RewriteRule \.(jpg|jpeg|png|gif)$ - [NC,F,L]
-RewriteCond %{REQUEST_URI} !null\.jpg$ [NC]
-RewriteRule \.(jpg)$ https://odesskiebaranki.github.io/images/oldlighthouse.jpg [L]
