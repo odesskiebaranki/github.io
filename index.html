@@ -248,6 +248,7 @@ function showPictures(){
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 32%; left: 2%;" title="Конфидициальность" onclick="openNav('confidece');">&#9730;</span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 42%; left: 2%;" title="Просмотренные странички" onclick="showPictures();">&#9850;</span>
 <span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 2%; right: 2%; font-weight: 600;" title="Текст" onclick="openNav('textstory');">&#9998;</span>
+<span style="font-size:33px; color: mediumblue; cursor:pointer; position: absolute; top: 52%; left: 2%;" title="Ваше мнение" onclick="openNav('callback');">&#9742;</span>
 <span class="reader_age"  title="В тексте рассказов встречается обсценная лексика (матершинка&#9786;)" onclick="openNav('mat')">18+</span>
 <div id="manage" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('manage')" title="Закрыть">&nbsp;×&nbsp;</a>
@@ -309,6 +310,12 @@ function showPictures(){
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('textstory')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<iframe id="showText" frameborder="no" seamless width="100%" height="85%" style="font-size:14px;" src=""></iframe>
 </div>
+<div id="callback" class="sidenav">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('callback')" title="Закрыть">&nbsp;×&nbsp;</a>
+	<iframe id="showText" frameborder="no" seamless width="100%" height="85%" style="font-size:14px;" src="https://docs.google.com/forms/d/e/1FAIpQLSdw0vFSBCBXO9D12Issv-
+hz6YgXZUCMhmBAhElRKtZ2KIqxJQ/viewform?embedded=true"></iframe>
+</div>
+
 <div id="allPictures" class="sidenav">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav('allPictures')" title="Закрыть">&nbsp;×&nbsp;</a>
 	<br><h1>Просмотренные странички</h1>
