@@ -225,13 +225,13 @@ function showPictures(){
 	openNav('allPictures');
 	var nx=1;
 	let name_story = '';
-	let request = new XMLHttpRequest;
+//	let request = new XMLHttpRequest;
 	while (nx<=show_idx){
 		let pict = document.createElement("img");
 		pict.setAttribute('id', 'pict_'+nx);
 		pict.setAttribute('src', 'img/'+nx+'.jpg');
 //		let name_story = '';
-//		let request = new XMLHttpRequest;
+		let request = new XMLHttpRequest;
 		request.open('GET', 'text/'+nx+'.txt', true);
 		request.onload = function () {
 			name_story = request.responseText.slice(0, request.responseText.indexOf('\n'));
