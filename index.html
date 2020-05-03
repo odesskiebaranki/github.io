@@ -236,7 +236,7 @@ function showPictures(){
 		request.send();
 		request.onload = function () {
 			name_story = request.response;
-			name_story = name_story.slice(0, name_story.indexOf('\n'));
+			name_story = name_story.slice(0, name_story.indexOf('\n')-1);
 			pict.setAttribute('title', 'Перейти к картинке и истории "'+name_story+'"');
 		};
 		pict.setAttribute('onclick', 'idx='+(nx-1)+';changeStory(1);closeNav(\'allPictures\')');
