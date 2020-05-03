@@ -224,12 +224,14 @@ function showPictures(){
 	document.getElementById('allPictures').innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav(\'allPictures\')" title="Закрыть">&nbsp;×&nbsp;</a><br><h1>Просмотренные странички</h1>';
 	openNav('allPictures');
 	var nx=1;
+	let name_story = '';
+	let request = new XMLHttpRequest;
 	while (nx<=show_idx){
 		let pict = document.createElement("img");
 		pict.setAttribute('id', 'pict_'+nx);
 		pict.setAttribute('src', 'img/'+nx+'.jpg');
-		let name_story = '';
-		let request = new XMLHttpRequest;
+//		let name_story = '';
+//		let request = new XMLHttpRequest;
 		request.open('GET', 'text/'+nx+'.txt', true);
 		request.onload = function () {
 			name_story = request.responseText.slice(0, request.responseText.indexOf('\n'));
