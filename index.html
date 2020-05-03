@@ -223,12 +223,13 @@ function showPictures(){
 	document.getElementById('allPictures').innerHTML='';
 	document.getElementById('allPictures').innerHTML='<a href="javascript:void(0)" class="closebtn" onclick="closeNav(\'allPictures\')" title="Закрыть">&nbsp;×&nbsp;</a><br><h1>Просмотренные странички</h1>';
 	openNav('allPictures');
+	let request = new XMLHttpRequest;
 	var nx=1;
 	while (nx<=show_idx){
 		let pict = document.createElement("img");
 		pict.setAttribute('id', 'pict_'+nx);
 		pict.setAttribute('src', 'img/'+nx+'.jpg');
-		let request = new XMLHttpRequest;
+//		let request = new XMLHttpRequest;
 		request.open('GET', 'text/'+nx+'.txt', true);
 		request.onload = function () {
 //			alert('request= '+request.responseText);
@@ -236,9 +237,8 @@ function showPictures(){
 			alert('name_story='+name_story);
 		};
 //		request.send(null);
-		request = null;
+//		request = null;
 		pict.setAttribute('title', 'Перейти к картинке и истории "'+name_story+'"');
-
 //		pict.setAttribute('title', 'Перейти к картинке № '+nx);
 		pict.setAttribute('onclick', 'idx='+(nx-1)+';changeStory(1);closeNav(\'allPictures\')');
 		pict.style.height = '50px';
