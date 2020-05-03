@@ -233,11 +233,11 @@ function showPictures(){
 //		let name_story = '';
 		let request = new XMLHttpRequest;
 		request.open('GET', 'text/'+nx+'.txt', true);
+		request.send();
 		request.onload = function () {
 			name_story = request.responseText.slice(0, request.responseText.indexOf('\n'));
 			alert('name_story='+name_story);
 		};
-//		request.send(null);
 //		request = null;
 		pict.setAttribute('title', 'Перейти к картинке и истории "'+name_story+'"');
 //		pict.setAttribute('title', 'Перейти к картинке № '+nx);
