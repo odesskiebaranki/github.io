@@ -231,8 +231,9 @@ function showPictures(){
 		let request = new XMLHttpRequest;
 		request.open('GET', 'text/'+nx+'.txt', true);
 		request.onload = function () {
-			alert('request= '+request.responseText);
+//			alert('request= '+request.responseText);
 			let name_story = request.responseText.slice(0, request.responseText.indexOf('\n'));
+			alert('name_story='+name_story);
 		};
 		request.send(null);
 		pict.setAttribute('title', 'Перейти к картинке и истории "'+name_story+'"');
