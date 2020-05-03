@@ -235,7 +235,9 @@ function showPictures(){
 		request.open('GET', 'text/'+nx+'.txt', true);
 		request.send();
 		request.onload = function () {
-			name_story = request.responseText.slice(0, request.responseText.indexOf('\n'));
+//			name_story = request.responseText.slice(0, request.responseText.indexOf('\n'));
+			name_story = request.response;
+			name_story = name_story.slice(0, request.responseText.indexOf('\n'));
 			alert('name_story='+name_story);
 		};
 //		request = null;
