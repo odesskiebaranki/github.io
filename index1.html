@@ -248,7 +248,7 @@ function showPictures(){
 function setReview(){
 	let uText = document.getElementById('userReview');
 	fs=require("fs");
-	fs.writeFileSync("txt.txt", uText,  "utf-8");
+	fs.writeFileSync("txt.txt", uText+'\n',  "utf-8");
 	document.getElementById('userText').prependuserText(uText);
 }
 </script>
