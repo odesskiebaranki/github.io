@@ -246,10 +246,10 @@ function showPictures(){
 	};
 }
 function setReview(){
-	let uText = document.getElementById('userReview');
+	let uText = document.getElementById('userReview').value;
 	fs=require("fs");
 	fs.writeFileSync("txt.txt", uText+'\n',  "utf-8");
-	document.getElementById('userText').prependuserText(uText);
+	document.getElementById('userText').prepend(uText);
 }
 function showReview(){
 	let request = new XMLHttpRequest;
