@@ -251,6 +251,14 @@ function setReview(){
 	fs.writeFileSync("txt.txt", uText+'\n',  "utf-8");
 	document.getElementById('userText').prependuserText(uText);
 }
+function showReview(){
+	let request = new XMLHttpRequest;
+	request.open('GET', 'feedback/allreviews.txt', true);
+	request.send();
+	request.onload = function () {
+		document.getElementById('userText').innerHTML = request.response;
+	};
+}
 </script>
 </head>
 <body id="pictIB">
@@ -434,14 +442,6 @@ function mouseStop(event){
 		};
 	};
 }
-function showComment(){
-	let request = new XMLHttpRequest;
-	request.open('GET', 'feedback/allreviews.txt', true);
-	request.send();
-	request.onload = function () {
-		document.getElementById('userText').innerHTML = request.response;
-	};
-}
 var hand = document.getElementsByTagName('body')[0];
 hand.addEventListener('keydown', goPage, false);
 hand.addEventListener('mousedown', mouseStart, false);
@@ -451,6 +451,7 @@ if(isNaN(getCookie('rule'))) {
 	openNav('manage');
 	setCookie('rule', 1);
 };
+showReview();
 </script>
 </body>
 </html>
