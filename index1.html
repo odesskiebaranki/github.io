@@ -249,14 +249,14 @@ function setReview(){
 	let uText = document.getElementById('userReview').value;
 	fs=require("fs");
 	fs.writeFileSync("txt.txt", uText+'\n',  "utf-8");
-	document.getElementById('userText').prepend(uText);
+	document.getElementById('showComments').prepend(uText);
 }
 function showReview(){
 	let request = new XMLHttpRequest;
 	request.open('GET', 'feedback/allreviews.txt', true);
 	request.send();
 	request.onload = function () {
-		document.getElementById('userText').innerHTML = request.response;
+		document.getElementById('showComments').innerHTML = request.response;
 	};
 }
 </script>
