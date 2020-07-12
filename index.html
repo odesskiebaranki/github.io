@@ -181,7 +181,8 @@ function changeStory(arg){
 	if(idx>max_idx)idx=1;
 	if(idx>show_idx)show_idx=idx;
 	document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
-	document.getElementById('story').src='audio/'+idx+'.wav';
+//	document.getElementById('story').src='audio/'+idx+'.wav';
+	document.getElementById('story').src='audio/'+idx+'.mp3';
 	document.getElementById('showText').src = 'text/'+idx+'.txt';
 
 	let ifr = document.getElementById('showText');
@@ -328,7 +329,7 @@ hz6YgXZUCMhmBAhElRKtZ2KIqxJQ/viewform?embedded=true"></iframe>
 	<br><h1>Просмотренные странички</h1>
 </div>
 <div class="ctrl">
-	<audio id="story" src="audio/1.wav" controls="true" controlsList="nodownload"></audio>
+	<audio id="story" src="audio/1.mp3" controls="true" controlsList="nodownload"></audio>
 	<img id="autoplay" style="float: right; margin-top: 2%;" src="img/start.png" onclick="getAutoPlay()" title="Включить автоматическое проигрывание">
 </div>
 <div id="fblike" class="fb-like" 
@@ -348,7 +349,8 @@ if(isNaN(page) || page === undefined){
 };
 show_idx = idx;
 document.body.style.backgroundImage = 'url(' + 'img/'+idx+'.jpg' + ')';
-document.getElementById('story').src='audio/'+idx+'.wav';
+//document.getElementById('story').src='audio/'+idx+'.wav';
+document.getElementById('story').src='audio/'+idx+'.mp3';
 document.getElementById('story').pause();
 document.getElementById('showText').src = 'text/'+idx+'.txt';
 let ifr = document.getElementById('showText');
